@@ -8,8 +8,14 @@ export const authOptions = {
   },
   providers: [
     FacebookProvider({
-      clientId: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      clientId: process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.NEXT_PUBLIC_FACEBOOK_CLIENT_SECRET,
+      authorization: {
+        params: {
+          scope:
+            "public_profile,email,pages_show_list,instagram_basic,instagram_manage_insights", // Add required scopes
+        },
+      },
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
